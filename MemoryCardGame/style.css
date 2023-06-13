@@ -1,0 +1,37 @@
+/* set the default padding and margin to 0 and set the box-sizing to border-box */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./images/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.cards{
+    width: 40vw;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+}
+
+.card{
+    width: 25%;
+    height: 30px;
+    object-fit: cover;
+    object-position: center;
+}
