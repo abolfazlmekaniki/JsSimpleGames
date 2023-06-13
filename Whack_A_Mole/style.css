@@ -1,0 +1,121 @@
+/* set the default padding and margin to 0 and set the box-sizing to border-box */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./image/pexels-johannes-plenio-1576849.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+
+.squers{
+    width: 210px;
+    height: 210px;
+    /* background-color: lightgray; */
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,-20%);
+    display: flex;
+    opacity: 0.8;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.squer{
+    width: 70px;
+    height: 70px;
+    background-color: lightgray;
+    border: 0.5px solid orange;
+}
+
+.bg{
+    background-image: url('./image/images.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.score_{
+    display: none;
+    color: orange;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+.displayNone{
+    display: none;
+}
+.displayBlock{
+    display: block;
+}
+.time{
+
+    position: absolute;
+    right: 7%;
+    top: 5%;
+    color: green;
+
+}
+
+.win{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right , rgba(0,0,0,0.9),rgba(0,0,0,0.9));
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+}
+.win_{
+    animation: show 1s linear forwards;
+}
+
+@-webkit-keyframes show{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#btn{
+    width: 50px;
+    height: 20px;
+    background-color: orange;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.win_p{
+    color: white;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black !important;
+}
