@@ -1,0 +1,17 @@
+/* set the default padding and margin to 0 and set the box-sizing to border-box */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right , rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./image/bg4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+
