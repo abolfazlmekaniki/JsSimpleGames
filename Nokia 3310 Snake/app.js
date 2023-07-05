@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     let direction = 1 // to the left 
 
-    let pre_direction = 1;
-
     current_snake = [0,1,2];
 
     last_moves=[0,1,2];
@@ -30,25 +28,21 @@ document.addEventListener("DOMContentLoaded",()=>{
                 });
 
                 let last = last_moves[last_moves.length -1];
-                console.log("last item of  moves is :" + last);
 
+                check_geme_over(direction,last_moves);
                 last_moves.push(last+1);
-   
-                console.log(" moves  :" + last_moves);
+
+
                 for(let i = last_moves.length -1 ; i> (last_moves.length -1) - current_snake.length ;i--){
                     current_snake=last_moves.slice(-current_snake.length);
+                    
                     cells[last_moves[i]].classList.add("snake");
                 }
-                console.log("current_snake[current_snake.length-1] = "+current_snake[current_snake.length-1])
-                if(current_snake[current_snake.length-1] %10 ==0){
-                    clearInterval(move);
-                }
-                
                 
 
         }
 
-        if(direction == 2 ){
+        else if(direction == 2 ){
             const length_ = last_moves.length;
             current_snake.forEach((element,index) =>{
                 
@@ -62,6 +56,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             console.log("last item of  moves is :" + last);
 
             last_moves.push(last+10);
+            check_geme_over(direction , last_moves);
 
             console.log(" moves  :" + last_moves);
             for(let i = last_moves.length -1 ; i> (last_moves.length -1) - current_snake.length ;i--){
@@ -69,15 +64,13 @@ document.addEventListener("DOMContentLoaded",()=>{
                 cells[last_moves[i]].classList.add("snake");
             }
             console.log("current_snake[current_snake.length-1] = "+current_snake[current_snake.length-1])
-            if(current_snake[current_snake.length-1] %10 ==0){
-                clearInterval(move);
-            }
+
             
             
 
-    }
+        }
 
-    if(direction == -1 ){
+        else if(direction == -1 ){
         const length_ = last_moves.length;
         current_snake.forEach((element,index) =>{
             
@@ -90,7 +83,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         let last = last_moves[last_moves.length -1];
         console.log("last item of  moves is :" + last);
 
+
+
         last_moves.push(last-1);
+
+        check_geme_over(direction , last_moves);
 
         console.log(" moves  :" + last_moves);
         for(let i = last_moves.length -1 ; i> (last_moves.length -1) - current_snake.length ;i--){
@@ -98,14 +95,11 @@ document.addEventListener("DOMContentLoaded",()=>{
             cells[last_moves[i]].classList.add("snake");
         }
         console.log("current_snake[current_snake.length-1] = "+current_snake[current_snake.length-1])
-        if(current_snake[current_snake.length-1] %10 ==0){
-            clearInterval(move);
-        }
         
         
 
-    }
-    if(direction == -2 ){
+        }
+        else if(direction == -2 ){
         const length_ = last_moves.length;
         current_snake.forEach((element,index) =>{
             
@@ -119,7 +113,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         console.log("last item of  moves is :" + last);
 
         last_moves.push(last-10);
-
+        check_geme_over(direction , last_moves);
         console.log(" moves  :" + last_moves);
         for(let i = last_moves.length -1 ; i> (last_moves.length -1) - current_snake.length ;i--){
             current_snake=last_moves.slice(-current_snake.length);
@@ -132,9 +126,38 @@ document.addEventListener("DOMContentLoaded",()=>{
         
         
 
-    }
+        };
 
-    },1000)
+        // check_geme_over(direction , lastMove)
+
+    },1000);
+
+
+
+    function check_geme_over(direction , lastMove){
+        console.log("direction is : "+direction +"and last cell is : "+lastMove[lastMove.length -1]);
+        if(direction ==1 && lastMove[lastMove.length -1] %10==9 && lastMove[lastMove.length -1] !=0){
+            clearInterval(move);
+            console.log("game over")
+        }
+
+        else if(direction == -1 && lastMove[lastMove.length -1] %10==9 ){
+        
+            clearInterval(move);
+            console.log("game over");
+        }
+        else if(direction == 2 && lastMove[lastMove.length -1] >=100 ){
+      
+            clearInterval(move);
+            console.log("game over");
+        }
+        else if(direction == -2 && lastMove[lastMove.length -1] <0 ){
+            
+            clearInterval(move);
+            console.log("game over");
+        }
+    };
+
 
     function control(e) {
         // squares[currentIndex].classList.remove('snake')
@@ -155,11 +178,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
     }
     
-      document.addEventListener('keyup', control)
-
-
-
-
-
+    document.addEventListener('keyup', control)
 
 })
