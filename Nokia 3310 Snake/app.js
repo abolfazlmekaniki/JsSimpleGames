@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     let score_ = 0;
 
     const score = document.querySelector("#score");
+    const score2 = document.querySelector("#score2");
     const div_score = document.querySelector(".score");
 
     
@@ -154,6 +155,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         if(direction ==1 && lastMove[lastMove.length -1] %10==9 && lastMove[lastMove.length -1] !=0){
             clearInterval(move);
             console.log("game over");
+            btn_.classList.remove("show_no");
             div_score.classList.add("show_");
             setTimeout(()=>{
                 window.location.reload();
@@ -164,6 +166,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         
             clearInterval(move);
             console.log("game over");
+            btn_.classList.remove("show_no");
             div_score.classList.add("show_");
             setTimeout(()=>{
                 window.location.reload();
@@ -173,6 +176,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       
             clearInterval(move);
             console.log("game over");
+            btn_.classList.remove("show_no");
             div_score.classList.add("show_");
             setTimeout(()=>{
                 window.location.reload();
@@ -182,6 +186,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             
             clearInterval(move);
             console.log("game over");
+            btn_.classList.remove("show_no");
             div_score.classList.add("show_");
             setTimeout(()=>{
                 window.location.reload();
@@ -205,11 +210,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     function check_apple(lastMove){
         // console.log(cells[lastMove[lastMove.length -1]].classList);
-        if(cells[lastMove[lastMove.length -1]].classList.contains("apple")){
+        if(lastMove[lastMove.length -1]<100 && 0<=lastMove[lastMove.length -1]  &&  cells[lastMove[lastMove.length -1]].classList.contains("apple")){
             cells[lastMove[lastMove.length -1]].classList.remove("apple");
             snake_length ++ ;
             score_++
             score.innerHTML = score_;
+            score2.innerHTML = score_;
             // cells[lastMove[lastMove.length - snake_length]].classList.add("snake");
             randome_apple();
         }
