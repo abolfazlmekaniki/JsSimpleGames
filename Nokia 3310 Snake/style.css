@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html , body{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right , rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./pexels-suzy-hazelwood-1822568.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.SnakeBored{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,-50%);
+    /* border: 1px solid  lightblue ; */
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.SnakeBored div{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black ;
+}
+
+.snake{
+    background-color: blue;
+}
+
+.apple{
+    background-color: purple;
+    
+}
